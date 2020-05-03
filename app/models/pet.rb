@@ -11,13 +11,11 @@ class Pet < ApplicationRecord
   def avg_weight
     #TODO-implement
     pet_arr = pet_histories.pluck(:weight)
-    pet_arr.inject{ |sum, element| sum + element }.to_f / pet_arr.size
   end
 
   def avg_height
     #TODO-implement
     pet_arr = pet_histories.pluck(:heigth)
-    pet_arr.inject{ |sum, element| sum + element }.to_f / pet_arr.size
   end
 
   def max_weight
