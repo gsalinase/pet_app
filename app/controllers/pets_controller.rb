@@ -10,6 +10,7 @@ class PetsController < ApplicationController
   # GET /pets/1
   # GET /pets/1.json
   def show
+    @pet = Pet.find params[:id]
   end
 
   # GET /pets/new
@@ -25,8 +26,7 @@ class PetsController < ApplicationController
   # POST /pets.json
   def create
     @pet = Pet.new(pet_params)
-
-    respond_to do |format|
+    respond_to do |format|        
       if @pet.save
         format.html { redirect_to @pet, notice: 'Pet was successfully created.' }
         format.json { render :show, status: :created, location: @pet }
@@ -69,6 +69,6 @@ class PetsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def pet_params
-      params.require(:pet).permit(:name, :race, :birthdate)
+      params.require(:pet).permit(:name, :race, :birthdate, :client_id)
     end
 end

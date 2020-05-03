@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Pet Histories</h1>
-
+<h1>Pet History</h1>
+<p><strong>Patient Name: </strong><%= @pet.name %></p>
 <table>
   <thead>
     <tr>
@@ -18,9 +18,9 @@
         <td><%= pet_history.weight %></td>
         <td><%= pet_history.heigth %></td>
         <td><%= pet_history.description %></td>
-        <td><%= link_to 'Show', pet_history %></td>
-        <td><%= link_to 'Edit', edit_pet_history_path(pet_history) %></td>
-        <td><%= link_to 'Destroy', pet_history, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', pet_pet_history_path(@pet, pet_history) %></td>
+        <td><%= link_to 'Edit', edit_pet_pet_history_path(@pet, pet_history) %></td>
+        <td><%= link_to 'Destroy', pet_pet_history_path(@pet, pet_history), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +28,6 @@
 
 <br>
 
-<%= link_to 'New Pet History', new_pet_history_path %>
+<%= link_to 'Back', pets_path %> |
+<%= link_to 'Pet Registry', pet_path(@pet) %> |
+<%= link_to 'New Pet History', new_pet_pet_history_path %> 
